@@ -1,0 +1,6 @@
+{
+  "name": "sigot-h3-laboratorio-patrones",
+  "private": true,
+  "type": "module",
+  "description": "Solo para que Node trate los .ts como módulos ES. No hay dependencias que instalar."
+}

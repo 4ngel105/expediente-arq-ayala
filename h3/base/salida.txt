@@ -1,0 +1,19 @@
+========== H3 · BASE (sin patrones) ==========
+-- recepción --
+[CLIENTE] CI 4789123 LP: Juan Carlos Pérez Mamani (sin verificar)
+[CLIENTE] CI 6543210-1A CB: María Quispe Condori (sin verificar)
+[ORDEN] OT-0001 · Juan Carlos Pérez Mamani · Laptop Lenovo ThinkPad T14 (S/N PF3K9Z) · prometida 17/09/2026 09:00
+[ORDEN] TK-0002 · María Quispe Condori · soporte remoto · prometida 14/09/2026 13:00
+-- ciclo de vida de OT-0001 --
+[BITACORA] OT-0001: RECIBIDA -> DIAGNOSTICADA (por recepcion)
+[RECHAZADO] OT-0001: no se pasa a EN_REPARACION sin técnico asignado
+[ASIGNACION] OT-0001 -> Ana
+[BITACORA] OT-0001: DIAGNOSTICADA -> EN_REPARACION (por jefe)
+[BITACORA] OT-0001: EN_REPARACION -> LISTA (por Ana)
+[RECHAZADO] OT-0001: de LISTA no se puede pasar a CANCELADA
+[BITACORA] OT-0001: LISTA -> ENTREGADA (por recepcion)
+-- bitácora de OT-0001 --
+  RECIBIDA -> DIAGNOSTICADA · recepcion · fuente dañada
+  DIAGNOSTICADA -> EN_REPARACION · jefe
+  EN_REPARACION -> LISTA · Ana · fuente reemplazada
+  LISTA -> ENTREGADA · recepcion · firma del cliente

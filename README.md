@@ -37,6 +37,8 @@ Abajo va el resumen de los 5 puntos; cada documento amplía el detalle.
 
 **H2 (refactor SOLID, entregado el 6-sep):** [h2/](h2/) — diagrama ANTES, diagrama DESPUÉS y el texto de qué cambió y qué principio lo pidió.
 
+**H3 (laboratorio de patrones, primera tanda, entregado el 13-sep):** [h3/](h3/) — base sin patrones y una copia aislada por patrón: Factory Method, Builder, Adapter y la justificación de por qué no Singleton.
+
 ---
 
 ## 1. El caso
@@ -344,7 +346,7 @@ Detalle: [docs/05-trazabilidad-rf.md](docs/05-trazabilidad-rf.md).
 |---|---|---|---|
 | **H1** | Inventario del caso: actores, módulos y primer diagrama de clases | dom 30-ago |  entregado |
 | **H2** | [Diagrama de clases con SOLID aplicado (refactor antes/después)](h2/) | dom 6-sep | entregado |
-| H3 | Al menos 2 patrones de diseño aplicados, con justificación | dom 13-sep | pendiente |
+| **H3** | [Laboratorio de patrones, primera tanda: base + Factory Method, Builder, Adapter y Singleton justificado](h3/) | dom 13-sep | entregado |
 | H4 | Diagramas C4 niveles 1-2 en Mermaid + 1 ADR | dom 20-sep | pendiente |
 | Defensa | Expediente completo + preguntas técnicas + cambio en vivo | jue 24-sep | pendiente |
 
