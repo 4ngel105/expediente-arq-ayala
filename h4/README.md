@@ -38,8 +38,4 @@ flowchart TB
 
 
 
-## Decisiones de arquitectura (ADR)
 
-| ADR | Decisión | Estado |
-|---|---|---|
-| [ADR-001](ADR-001-fusion-decorator-strategy.md) | Fusionar Decorator y Strategy en el cálculo de la fecha prometida | Aceptada |
