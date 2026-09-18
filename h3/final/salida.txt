@@ -1,0 +1,43 @@
+========== H3 · FINAL — DECORATOR + STRATEGY ==========
+-- 1 · dos órdenes reales: cada una arma su servicio y trae su contrato --
+[ORDEN] OT-0001 · Juan Carlos Pérez Mamani
+        servicio : Reparación en taller + respaldo de datos (76 h · Bs 230)
+        contrato : estándar · ALTA
+        prometida: 17/09/2026 13:00
+[ORDEN] OT-0002 · María Quispe Condori
+        servicio : Reparación en taller + respaldo de datos + recojo a domicilio (100 h · Bs 350)
+        contrato : corporativo (SLA 48h) · URGENTE
+        prometida: 15/09/2026 09:00
+-- 2 · los dos ejes son independientes: la matriz lo prueba --
+   (misma fila = mismo servicio con otro contrato · misma columna = otro servicio, mismo contrato)
+   Reparación en taller (72 h)
+     estándar                               -> 17/09/2026 09:00
+     garantía (la prioridad no la acelera)  -> 20/09/2026 09:00
+     corporativo (SLA 48h)                  -> 16/09/2026 09:00
+   Reparación en taller + respaldo de datos (76 h)
+     estándar                               -> 17/09/2026 13:00
+     garantía (la prioridad no la acelera)  -> 20/09/2026 17:00
+     corporativo (SLA 48h)                  -> 16/09/2026 09:00
+   Reparación en taller + respaldo de datos + recojo a domicilio (100 h)
+     estándar                               -> 18/09/2026 13:00
+     garantía (la prioridad no la acelera)  -> 22/09/2026 17:00
+     corporativo (SLA 48h)                  -> 16/09/2026 09:00
+   Soporte remoto (24 h)
+     estándar                               -> 15/09/2026 09:00
+     garantía (la prioridad no la acelera)  -> 16/09/2026 09:00
+     corporativo (SLA 48h)                  -> 15/09/2026 09:00
+-- 3 · un extra nuevo NO toca ninguna política --
+   estándar                               -> 17/09/2026 15:00
+   garantía (la prioridad no la acelera)  -> 20/09/2026 21:00
+   corporativo (SLA 48h)                  -> 16/09/2026 09:00
+-- 4 · un contrato nuevo NO toca ningún extra --
+   Reparación en taller                                           -> 14/09/2026 17:00
+   Reparación en taller + respaldo de datos                       -> 14/09/2026 17:00
+   Reparación en taller + respaldo de datos + recojo a domicilio  -> 14/09/2026 17:00
+   Soporte remoto                                                 -> 14/09/2026 17:00
+-- 5 · la orden sigue viviendo igual que en la base --
+[ORDEN] TK-0003 · María Quispe Condori
+        servicio : Soporte remoto + respaldo de datos (28 h · Bs 170)
+        contrato : garantía (la prioridad no la acelera) · URGENTE
+        prometida: 16/09/2026 17:00
+        estado   : RECIBIDA · bitácora: 0 avances

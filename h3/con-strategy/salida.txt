@@ -1,0 +1,24 @@
+========== H3 · CON STRATEGY ==========
+-- 1 · ANTES: la función con if/else, llamada a mano --
+  taller ALTA    -> 17/09/2026 09:00
+  remoto URGENTE -> 14/09/2026 13:00
+-- 2 · DESPUÉS: las mismas dos órdenes, con la política inyectada --
+[ORDEN] OT-0001 · ALTA · estándar · prometida 17/09/2026 09:00
+[ORDEN] TK-0002 · URGENTE · estándar · prometida 14/09/2026 13:00
+-- 3 · la prueba de que no se rompió nada: ANTES y DESPUÉS dan lo mismo --
+  OK    ESTANDAR/NORMAL/taller -> 17/09/2026 09:00
+  OK    ESTANDAR/NORMAL/remoto -> 15/09/2026 09:00
+  OK    ESTANDAR/URGENTE/taller -> 15/09/2026 09:00
+  OK    ESTANDAR/URGENTE/remoto -> 14/09/2026 13:00
+  OK    GARANTIA/NORMAL/taller -> 21/09/2026 09:00
+  OK    GARANTIA/NORMAL/remoto -> 16/09/2026 09:00
+  OK    GARANTIA/URGENTE/taller -> 21/09/2026 09:00
+  OK    GARANTIA/URGENTE/remoto -> 16/09/2026 09:00
+  OK    CORPORATIVO/NORMAL/taller -> 14/09/2026 21:00
+  OK    CORPORATIVO/NORMAL/remoto -> 14/09/2026 21:00
+  OK    CORPORATIVO/URGENTE/taller -> 14/09/2026 15:00
+  OK    CORPORATIVO/URGENTE/remoto -> 14/09/2026 15:00
+-- 4 · lo que el ANTES no podía hacer sin abrir la función --
+[ORDEN] OT-0003 · URGENTE · garantía (la prioridad no la acelera) · prometida 21/09/2026 09:00
+[ORDEN] OT-0004 · URGENTE · corporativo (SLA 12h) · prometida 14/09/2026 15:00
+[ORDEN] OT-0005 · NORMAL · express de feria (mismo día) · prometida 14/09/2026 17:00

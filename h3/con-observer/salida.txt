@@ -1,0 +1,21 @@
+========== H3 · CON OBSERVER ==========
+[ORDEN] OT-0001 · Juan Carlos Pérez Mamani · Laptop Lenovo ThinkPad T14 (S/N PF3K9Z) · prometida 17/09/2026 09:00
+-- se suscriben los interesados --
+[SUSCRIPCION] OT-0001 tiene 2 observadores: AvisoAlCliente y TableroDelJefe
+-- ciclo de vida de OT-0001 --
+[TABLERO 1] OT-0001 · RECIBIDA -> DIAGNOSTICADA · técnico: sin asignar
+[BITACORA] OT-0001: RECIBIDA -> DIAGNOSTICADA (por recepcion)
+[RECHAZADO] OT-0001: no se pasa a EN_REPARACION sin técnico asignado
+[ASIGNACION] OT-0001 -> Ana
+[TABLERO 2] OT-0001 · DIAGNOSTICADA -> EN_REPARACION · técnico: Ana
+[BITACORA] OT-0001: DIAGNOSTICADA -> EN_REPARACION (por jefe)
+[SMS -> 70011223] Juan Carlos Pérez Mamani: Laptop Lenovo ThinkPad T14 (S/N PF3K9Z) ya está listo. Orden OT-0001.
+[TABLERO 3] OT-0001 · EN_REPARACION -> LISTA · técnico: Ana
+[BITACORA] OT-0001: EN_REPARACION -> LISTA (por Ana)
+[TABLERO 4] OT-0001 · LISTA -> ENTREGADA · técnico: Ana
+[BITACORA] OT-0001: LISTA -> ENTREGADA (por recepcion)
+-- bitácora de OT-0001 (igual que en la base: Observer no cambió cómo vive la orden) --
+  RECIBIDA -> DIAGNOSTICADA · recepcion · fuente dañada
+  DIAGNOSTICADA -> EN_REPARACION · jefe
+  EN_REPARACION -> LISTA · Ana · fuente reemplazada
+  LISTA -> ENTREGADA · recepcion · firma del cliente
