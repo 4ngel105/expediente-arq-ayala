@@ -13,16 +13,16 @@ La pregunta que responde: **¿quién usa SIGOT y con qué otros sistemas habla?*
 
 ```mermaid
 flowchart TB
-    recepcionista["👤 Recepcionista<br>(registra órdenes y entrega equipos)"]
-    tecnico["👤 Técnico<br>(carga avances y repara)"]
-    jefe["👤 Jefe de Taller<br>(asigna, prioriza y mide)"]
-    almacen["👤 Encargado de Almacén<br>(controla stock de repuestos)"]
+    recepcionista["Recepcionista<br>(registra órdenes y entrega equipos)"]
+    tecnico["Técnico<br>(carga avances y repara)"]
+    jefe["Jefe de Taller<br>(asigna, prioriza y mide)"]
+    almacen["Encargado de Almacén<br>(controla stock de repuestos)"]
 
-    sigot["🔧 SIGOT — SISTEMA DE ÓRDENES DE TRABAJO<br>Registra el equipo que entra al taller,<br>custodia el estado de cada orden<br>y avisa al cliente cuando está lista"]
+    sigot["SIGOT — SISTEMA DE ÓRDENES DE TRABAJO<br>Registra el equipo que entra al taller,<br>custodia el estado de cada orden<br>y avisa al cliente cuando está lista"]
 
-    segip["🆔 SEGIP<br>(externo · padrón de identidad)"]
-    correo["📧 Servicio de correo / mensajería<br>(externo)"]
-    cliente["👤 Cliente<br>(recibe el aviso de su equipo)"]
+    segip["SEGIP<br>(externo · padrón de identidad)"]
+    correo["Servicio de correo / mensajería<br>(externo)"]
+    cliente["Cliente<br>(recibe el aviso de su equipo)"]
 
     recepcionista -->|"registra la orden y cierra la entrega"| sigot
     tecnico -->|"carga avances y mueve el estado"| sigot
@@ -53,20 +53,20 @@ La pregunta que responde: **¿de qué piezas ejecutables/almacenes está hecho S
 
 ```mermaid
 flowchart TB
-    recepcionista["👤 Recepcionista"]
-    tecnico["👤 Técnico"]
-    jefe["👤 Jefe de Taller"]
-    almacen["👤 Encargado de Almacén"]
+    recepcionista["Recepcionista"]
+    tecnico["Técnico"]
+    jefe["Jefe de Taller"]
+    almacen["Encargado de Almacén"]
 
-    subgraph sigot["🔧 SIGOT — SISTEMA DE ÓRDENES DE TRABAJO"]
-        spa["🌐 Aplicación web<br>Angular / TypeScript<br>Mostrador, cola del técnico,<br>tablero del jefe y reportes"]
-        api["⚙️ Lógica de negocio<br>API REST · TypeScript<br>Ciclo de vida de la orden, asignación,<br>repuestos y permisos por rol<br>★ LA FUSIÓN vive acá:<br>Decorator (servicio contratado)<br>+ Strategy (política de plazo)"]
-        bd[("🗄️ Base de datos<br>SQL<br>Órdenes, bitácora de avances,<br>clientes, equipos y repuestos")]
-        avisos["🛎️ Servicio de avisos<br>TypeScript<br>Observer: escucha OrdenLista<br>y reintenta lo que falló"]
+    subgraph sigot["SIGOT — SISTEMA DE ÓRDENES DE TRABAJO"]
+        spa["Aplicación web<br>Angular / TypeScript<br>Mostrador, cola del técnico,<br>tablero del jefe y reportes"]
+        api["Lógica de negocio<br>API REST · TypeScript<br>Ciclo de vida de la orden, asignación,<br>repuestos y permisos por rol<br>★ LA FUSIÓN vive acá:<br>Decorator (servicio contratado)<br>+ Strategy (política de plazo)"]
+        bd[("Base de datos<br>SQL<br>Órdenes, bitácora de avances,<br>clientes, equipos y repuestos")]
+        avisos["Servicio de avisos<br>TypeScript<br>Observer: escucha OrdenLista<br>y reintenta lo que falló"]
     end
 
-    segip["🆔 SEGIP (externo)"]
-    correo["📧 Servicio de correo / mensajería (externo)"]
+    segip["SEGIP (externo)"]
+    correo["Servicio de correo / mensajería (externo)"]
 
     recepcionista --> spa
     tecnico --> spa
@@ -110,10 +110,10 @@ como cajas de nivel 2 sería confundir módulo con contenedor. El mapeo real es:
 
 | Contenedor | Módulos que viven adentro |
 |---|---|
-| 🌐 Aplicación web | las pantallas de `ordenes`, `asignacion`, `clientes`, `repuestos`, `reportes` |
-| ⚙️ Lógica de negocio | M0 · Acceso y Roles · M1 · Órdenes · M2 · Asignación · M3 · Clientes y Equipos · M4 · Repuestos · M6 · Reportes |
-| 🗄️ Base de datos | — (persistencia de todos) |
-| 🛎️ Servicio de avisos | **M5 · Notificaciones**, en exclusiva |
+| Aplicación web | las pantallas de `ordenes`, `asignacion`, `clientes`, `repuestos`, `reportes` |
+| Lógica de negocio | M0 · Acceso y Roles · M1 · Órdenes · M2 · Asignación · M3 · Clientes y Equipos · M4 · Repuestos · M6 · Reportes |
+| Base de datos | — (persistencia de todos) |
+| Servicio de avisos | **M5 · Notificaciones**, en exclusiva |
 
 **M5 es el único módulo que sí merece contenedor propio**, y esa es la decisión de diseño de este
 diagrama: reintenta envíos con su propio ritmo contra un tercero que se cae, y **no puede bloquear una
