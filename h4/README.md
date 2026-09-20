@@ -135,7 +135,7 @@ sin que falle el dominio — que es justo el atributo de calidad que RF5 tension
 - El **SEGIP** del nivel 1 es la frontera donde vive el Adapter de [`h3/con-adapter/`](../h3/con-adapter/).
 - La caja **Lógica de negocio** es donde viven los patrones de la Parte A, incluida la fusión de
   [`h3/final/`](../h3/final/): el Decorator arma el servicio contratado y la Strategy convierte sus
-  horas en la fecha prometida. La decisión está documentada en [ADR-001](ADR-001-fusion-decorator-strategy.md).
+  horas en la fecha prometida. La decisión está documentada en [ADR-001](adr-001.md).
 - El diagrama **vive en el repo**: cambia el sistema → cambia el diagrama → queda en el commit.
   Eso es "diagrama como código": documentación que no se desactualiza en un cajón.
 
@@ -145,4 +145,4 @@ sin que falle el dominio — que es justo el atributo de calidad que RF5 tension
 
 | ADR | Decisión | Estado |
 |---|---|---|
-| [ADR-001](ADR-001-fusion-decorator-strategy.md) | Fusionar Decorator y Strategy en el cálculo de la fecha prometida | Aceptada |
+| [ADR-001](adr-001.md) | Fusionar Decorator y Strategy en el cálculo de la fecha prometida | Aceptada |

@@ -66,7 +66,7 @@ fusión además destapó que `PoliticaDePlazo` recibía el parámetro equivocado
 en lugar de `horasBase: number`).
 
 La decisión, las tres alternativas descartadas y el costo están en
-[`h4/ADR-001`](../h4/ADR-001-fusion-decorator-strategy.md). Los diagramas C4 del sistema, en
+[`h4/ADR-001`](../h4/adr-001.md). Los diagramas C4 del sistema, en
 [`h4/README.md`](../h4/README.md).
 
 ## Cómo correrlo

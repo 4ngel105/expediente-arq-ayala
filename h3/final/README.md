@@ -1,7 +1,7 @@
 # H3 · FINAL — La fusión: Decorator + Strategy
 
 Esta es la **Parte A del H4**: los dos patrones ya no viven en carpetas separadas, se conectan.
-La decisión y sus alternativas descartadas están en [h4/ADR-001](../../h4/ADR-001-fusion-decorator-strategy.md).
+La decisión y sus alternativas descartadas están en [h4/ADR-001](../../h4/adr-001.md).
 
 ---
 
@@ -79,7 +79,7 @@ dejado pasar.**
 
 ## Costo del diseño
 
-Está detallado en las **consecuencias** del [ADR-001](../../h4/ADR-001-fusion-decorator-strategy.md).
+Está detallado en las **consecuencias** del [ADR-001](../../h4/adr-001.md).
 En corto: donde había una función con `if` ahora hay 9 clases, el cálculo quedó repartido en dos
 lugares, y nada impide apilar dos veces el mismo extra. Para un taller que vendiera un solo servicio
 a un solo tipo de cliente, esto sería sobre-ingeniería.
