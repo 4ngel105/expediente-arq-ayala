@@ -60,7 +60,7 @@ flowchart TB
 
     subgraph sigot["🔧 SIGOT — SISTEMA DE ÓRDENES DE TRABAJO"]
         spa["🌐 Aplicación web<br>Angular / TypeScript<br>Mostrador, cola del técnico,<br>tablero del jefe y reportes"]
-        api["⚙️ Lógica de negocio<br>API REST · TypeScript<br>Ciclo de vida de la orden, asignación,<br>repuestos y permisos por rol<br>(acá viven SOLID y los patrones)"]
+        api["⚙️ Lógica de negocio<br>API REST · TypeScript<br>Ciclo de vida de la orden, asignación,<br>repuestos y permisos por rol<br>★ LA FUSIÓN vive acá:<br>Decorator (servicio contratado)<br>+ Strategy (política de plazo)"]
         bd[("🗄️ Base de datos<br>SQL<br>Órdenes, bitácora de avances,<br>clientes, equipos y repuestos")]
         avisos["🛎️ Servicio de avisos<br>TypeScript<br>Observer: escucha OrdenLista<br>y reintenta lo que falló"]
     end
@@ -82,6 +82,25 @@ flowchart TB
 
 **Regla de oro del nivel 2:** cada caja debe poder "arrancarse" o "consultarse" por separado.
 Las clases individuales NO van acá (eso sería nivel 3-4, y el curso no lo exige).
+
+### Dónde viven los dos patrones fusionados
+
+Los dos viven **dentro del contenedor de Lógica de negocio**, y ese es el punto: la fusión no cruza
+ninguna frontera de despliegue. Es una decisión de diseño interno, no de arquitectura distribuida.
+
+| Patrón | Qué resuelve dentro de la caja | Código |
+|---|---|---|
+| **Decorator** | arma el servicio contratado apilando extras y produce el trabajo estimado | [`h3/final/`](../h3/final/) · `Servicio`, `DecoradorDeServicio` |
+| **Strategy** | convierte ese trabajo en fecha prometida según el contrato del cliente | [`h3/final/`](../h3/final/) · `PoliticaDePlazo` |
+
+La costura entre los dos es una sola línea, y también vive ahí:
+
+```ts
+const prometida = politica.calcular(LUNES_9AM, prioridad, servicio.horas());
+```
+
+Por eso la caja de Lógica de negocio es la única que cambia cuando el taller vende un extra nuevo o
+firma un contrato nuevo: ni la SPA, ni la base de datos, ni el servicio de avisos se enteran.
 
 ### Por qué el corte quedó así
 
