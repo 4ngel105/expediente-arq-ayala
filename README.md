@@ -2,7 +2,7 @@
 
 **Estudiante:** Roberto Angel Ayala Lecoña  
 **Materia:** Arquitectura de Software · UAB · Gestión 2026-2 · Ing. Josue Chura  
-**Repositorio (expediente):** https://github.com/4ngel105/ordenes_de_trabajo  
+**Repositorio (expediente):** https://github.com/4ngel105/expediente-arq-ayala  
 
 ---
 
